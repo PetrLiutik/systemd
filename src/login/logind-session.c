@@ -533,8 +533,10 @@ int session_activate(Session *s) {
         if (s->seat->active == s)
                 return 0;
 
+        log_error("!!!!!session_activate");
         /* on seats with VTs, we let VTs manage session-switching */
         if (seat_has_vts(s->seat)) {
+                log_error("!!!!!session_has_vts");
                 if (!s->vtnr)
                         return -EOPNOTSUPP;
 
@@ -555,6 +557,7 @@ int session_activate(Session *s) {
         if (!num_pending)
                 seat_complete_switch(s->seat);
 
+        log_error("!!!!!session_activate num_pending-%d", num_pending);
         return 0;
 }
 

@@ -239,6 +239,8 @@ int seat_set_active(Seat *s, Session *session) {
         assert(s);
         assert(!session || session->seat == s);
 
+        log_error("!!!!!!seat_set_active");
+
         if (session == s->active)
                 return 0;
 
@@ -555,6 +557,8 @@ void seat_complete_switch(Seat *s) {
         Session *session;
 
         assert(s);
+
+        log_error("!!!!!!seat_complete_switch");
 
         /* if no session-switch is pending or if it got canceled, do nothing */
         if (!s->pending_switch)

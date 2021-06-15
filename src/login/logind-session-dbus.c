@@ -235,6 +235,7 @@ int bus_session_method_activate(sd_bus_message *message, void *userdata, sd_bus_
         assert(s);
 
         r = session_activate(s);
+        log_error("!!!!!bus_session_method_activate: session_activate, res-%d", r);
         if (r < 0)
                 return r;
 
